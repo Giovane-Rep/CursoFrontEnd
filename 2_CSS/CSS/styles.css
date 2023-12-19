@@ -1,0 +1,65 @@
+/* External CSS */
+h3 {
+    color: cadetblue;
+    font-size: 50px;
+    border-bottom: 1px solid pink;
+}
+
+/* Classes */
+.paragraph {
+    background-color: black;
+    color: bisque;
+    padding: 5px;
+}
+
+/* IDs */
+#exclusive-title {
+    background-color: blue;
+    color: chartreuse;
+    padding: 10px;
+}
+
+/* Color Name */
+.color-name {
+    color: red;
+}
+
+/* Color Hexadecimal */
+.hex {
+    color: #226d3f;
+}
+
+/* Color RGB */
+.rgb {
+    color: rgb(100, 100, 22);
+}
+
+/* Color RGBA */
+.rgba {
+    color: rgba(100, 100, 100, 1);
+}
+
+/* Background-Color */
+.bg {
+    background-color: #226d3f;
+}
+
+/* Background-Color Opacity */
+.bg-opacity {
+    background-color: #666999;
+    opacity: 0.4;
+}
+
+/* Background-Color com RGBA */
+.bg-rgba {
+    background-color: rgba(100, 200, 50, 0.5);
+}
+
+/* Background-Color com Imagem */
+.bg-image {
+    height: 400px;
+    width: 400px;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../img/Fuinha.jpg");
+}

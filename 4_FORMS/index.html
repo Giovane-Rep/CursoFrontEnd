@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+    <link rel="stylesheet" href="/4_FORMS/css/styles.css">
+</head>
+<body>
+    <!--Primeiro formulário-->
+    <h2>Formulários HTML</h2>
+    <!--Atributos do formulário-->
+    <form action="exemplo.php" method="GET">
+        <div>
+            <label>Nome: </label>
+            <input type="text">
+        </div>
+        <!--Atributo Name-->
+        <div>
+            <!--Atributo Label funciona como uma referência a qual input o label está linkado-->
+            <label for="age">Idade:</label>
+            <input type="text" name="age">
+        </div>
+        <!--Select-->
+        <div>
+            <label for="job">Selecione uma profissão:</label>
+            <select name="job">
+                <option value="programador">Programador</option>
+                <!--Atributo selected, geralmente usado para carregar a opção mais provável a ser selecionada, ou para pré determinar a opção selecionada-->
+                <option value="teste" selected>Tester/QA</option>
+                <option value="devops">DevOps</option>
+            </select>
+        </div>
+        <!--Multiplas seleções-->
+        <div>
+            <label for="items">Selecione os itens desejados:</label>
+            <select name="items" multiple>
+                <option value="banana">Banana</option>
+                <option value="laranja">Laranja</option>
+                <option value="abacate">Abacate</option>
+                <option value="manga">Manga</option>
+            </select>
+        </div>
+        <!--Textarea utilizada para inserção de textos maiores, com maior quantidade de caracteres-->
+        <div>
+            <label for="comment">Comentários:</label>
+            <textarea name="comment"></textarea>
+        </div>
+        <!--Fieldset e Legends-->
+        <div>
+            <fieldset>
+                <legend>Preencha as informações:</legend>
+                <label for="firstname">Nome:</label>
+                <input type="text" name="firstname">
+                <label for="lastname">Sobrenome:</label>
+                <input type="text" name="lastname">
+            </fieldset>
+        </div>
+        <!--Datalist, funciona como um select porém com uma opção de busca, autocomplete, permite a inserção de um novo dado ou de algum dado presente na lista-->
+        <div>
+            <label for="flavor">Escolha o sabor:</label>
+            <input type="text" list="flavors" name="flavor">
+
+            <datalist id="flavors">
+                <option value="Morango"></option>
+                <option value="Chocolate"></option>
+                <option value="Creme"></option>
+                <option value="Uva"></option>
+            </datalist>
+        </div>
+        <!--Senha-->
+        <div>
+            <label for="password">Digite sua senha:</label>
+            <input type="password" name="password">
+        </div>
+        <!--Botão Radio-->
+        <div>
+            <label for="gender">Sexo:</label>
+            <div class="radio">
+                <input type="radio" value="masculino" name="gender">
+                <label for="masculino">Masculino</label>
+                <input type="radio" value="feminino" name="gender">
+                <label for="feminino">Feminino</label>
+            </div>
+        </div>
+        <!--Checkbox, caixa de seleção-->
+        <div>
+            <label for="options">Opções:</label>
+            <div class="radio">
+                <!--O [] presente no atributo name representa que mais de uma opção pode ser enviada-->
+                <input type="checkbox" name="options[]" value="opcao1">
+                <label for="opcao1">Opção 1</label>
+            </div>
+            <div class="radio">
+                <input type="checkbox" name="options[]" value="opcao2">
+                <label for="opcao2">Opção 2</label>
+            </div>
+            <div class="radio">
+                <input type="checkbox" name="options[]" value="opcao3">
+                <label for="opcao3">Opção 3</label>
+            </div>
+        </div>
+        <!--Data-->
+        <div>
+            <label for="birthdate">Data de nascimento:</label>
+            <input type="date" name="birthdate">
+        </div>
+        <!--Envio de Arquivo-->
+        <div>
+            <label for="arquive">Insira o arquivo:</label>
+            <input type="file" name="arquive">
+        </div>
+        <!--Input do tipo Número-->
+        <div>
+            <label for="quantity">Digite a quantidade solicitada:</label>
+            <input type="number" name="quantity">
+        </div>
+        <!--Input para email-->
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email">
+        </div>
+        <!--Atributo value, utilizado para definir um valor padrão ao input, bastante utilizado quando um dados precisa ser carregado para ser editado-->
+        <div>
+            <label for="value">Digite algum valor:</label>
+            <input type="text" value="O meu valor é esse" name="value">
+        </div>
+        <!--Atributo disabled, usado como o nome sujere para desabilitar um input, seja sob alguma condição ou não-->
+        <div>
+            <p>O campo abaixo não pode ser alterado</p>
+            <input type="text" value="Não precisa preencher" disabled>
+        </div>
+        <!--Placaholder, funciona como uma dica do que precisa ser inserido no input, como um exemplo a ser seguido-->
+        <div>
+            <label for="email">Preencha o campo com o seu email:</label>
+            <input type="text" name="email" placeholder="exemplo@email.com">
+        </div>
+        <!--Atributo required, torna o preenchimento do campo obrigatório-->
+        <div>
+            <label for="age">Idade:</label>
+            <input type="number" name="age" required>
+        </div>
+        <!--Resetar Form-->
+            <input type="reset" value="Limpar formulário">
+        <!--Envio de Formulário-->
+            <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
