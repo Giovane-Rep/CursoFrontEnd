@@ -124,10 +124,75 @@ function loop (n) {
 
 loop (0);
 
-//ARRAYS 
+//Vetores 
 
-let teste = [1, 2, 4];
+let testeVetor = [1, 2, 4, 7, 9];
 
-for (let i = 0; i < teste.length; i++) {
-    console.log(teste[i]);
+for (let i = 0; i < testeVetor.length; i++) {
+    console.log(testeVetor[i]);
 }
+
+//Objetos
+
+let pessoa = {
+    name: "Maria",
+    age: 32,
+    address: "Rua A"
+}
+
+console.log(pessoa);
+console.log(pessoa.name);
+
+//Criando e deletando atributo de um objeto
+
+let car = {
+    engine: 2.0,
+    brand: "VW",
+    model: "Gol",
+    KM: 20000
+}
+
+console.log(car);
+
+car.doors = 4; //Incrementa outro atributo
+
+console.log(car);
+
+delete car.doors;//Deleta um atributo
+
+console.log(car);
+
+//Propriedade keys e entries da classe Object
+
+console.log(Object.keys(car)); //Exibe uma lista com as propriedades/atributos do objeto
+
+console.log(Object.entries(car)); //Além das propriedades do objeto exibe também os valores atribuidos a cada propriedade
+
+//push e pop - Adicionam ou remove um elemento no final do array respectivamente
+
+const vect = ["a", "b", "c"];
+
+console.log(vect);
+
+vect.push("d");
+
+console.log(vect);
+
+vect.pop();// Pode ter o elemento especificado ou não: vect.pop("d")
+
+console.log(vect);
+
+const itemRemovido = vect.pop(); //é possível armazenar o item removido
+
+console.log(itemRemovido);
+console.log(vect);
+
+//shif e unshif - Remove ou adiciona um elemento no início do array respectivamente
+
+vect.shift();
+
+console.log(vect);
+
+vect.unshift("a");
+
+console.log(vect);
