@@ -196,3 +196,80 @@ console.log(vect);
 vect.unshift("a");
 
 console.log(vect);
+
+//REST Operator, usado para receber indefinidos argumentos em uma função
+
+const somaInfinita = (...args) => {
+    let total = 0;
+
+    for (let i = 0; i < args.length; i++) {
+        total += args[i];
+    }
+
+    return total;
+}
+
+console.log(somaInfinita (2, 3, 5, 7, 10));
+
+//Estrutura de repetição FOR...OF
+
+const somaInfinita2 = (...args) => {
+    let total = 0;
+
+    for (num of args) {
+        total += num;
+    }
+
+    return total;
+}
+
+console.log(somaInfinita2(1, 2, 3, 4, 5));
+
+//Destructuring em Objetos
+
+const userDetails = {
+    firstname: "Maria",
+    lastName: "José",
+    job: "Programadora"
+}
+
+const {firstname, lastName, job} = userDetails;
+
+console.log(firstname, lastName, job);
+
+//Renomear variáveis no Destructuring
+
+const {firstname: primeiroNome} = userDetails;
+
+console.log(primeiroNome);
+
+//Destructuring em Arrays
+
+const myList = ["Avião", "Carro", "Bicicleta"];
+
+const [veiculoA, veiculoB, veiculoC] = myList;
+
+console.log(veiculoA, veiculoC);
+console.log(veiculoB);
+
+//JSON
+
+const myJson = '{"name": "José", "age": 33, "skills": ["PHP", "JavaScript", ".NET"]}' //Não tem utilidade nesse estado, é necessário converter para object literal
+
+console.log(myJson);
+
+//Conversão de JSON para Object e de Object para JSON
+
+const myObject = JSON.parse(myJson);
+
+console.log(myObject);
+
+console.log(myObject.name);
+
+myObject.isOpenToWork = true;
+
+console.log(myObject);
+
+const myNewJson = JSON.stringify(myObject);
+
+console.log(myNewJson);
