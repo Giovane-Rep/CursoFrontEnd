@@ -1,0 +1,8 @@
+/* Ao estilizar o <p> no componente o <p> de outros componentes 
+também serão estilizados pois o css não possui escopo, 
+sendo assim a melhor abordagem é utilizar classes e ids
+*/
+.my-component-p {
+    color: green;
+    border-bottom: 1px solid #000;
+}
