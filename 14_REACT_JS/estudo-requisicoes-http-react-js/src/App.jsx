@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 
 import { useFetch } from './hooks/useFetch';
@@ -8,10 +9,10 @@ import './App.css';
 
 function App() {
   // Resgatando dados
-  const [,setProducts] = useState([]);
+  const [product, setProducts] = useState([]);
 
   // Utilizando o custom hook
-  const { data: items } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   // useEffect(() => {
   //   async function getData() {
@@ -25,7 +26,7 @@ function App() {
   //   getData();
   // }, []);
 
-  // Envio de dados
+  // Envio de dados - POST
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
 
@@ -37,23 +38,35 @@ function App() {
       price,
     };
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
+    // Refatorando o POST
+    httpConfig(product, "POST");
 
-    //Carregamento dinâmico
-    const addedProduct = await response.json();
+    // --//--
 
-    setProducts((prevProducts) => [...prevProducts, addedProduct]);
+    // const response = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(product),
+    // });
+
+    // //Carregamento dinâmico
+    // const addedProduct = await response.json();
+
+    // setProducts((prevProducts) => [...prevProducts, addedProduct]);
   };
 
   return (
     <div>
       <h1>Requisições HTTP em React</h1>
+      {/* Loading */}
+      {/* Se o loading estiver ativado o parágrafo abaixo será exibido */}
+      {loading && <p>Carregando...</p>}
+
+      {/* Tratando erro */}
+      {error && <p>{error}</p>}
+
       {/* Resgate de dados */}
       <ul>
         {items && // Validação para saber ser possui algum item
@@ -77,7 +90,10 @@ function App() {
               setPrice(e.target.value);
             }} />
           </label>
-          <input type="submit" value="Enviar" />
+          {/* <input type="submit" value="Enviar" /> */}
+          {/* Loading POST */}
+          {loading && <input type='submit' disabled value='Aguarde' />}
+          {!loading && <input type="submit" value="Criar" />}
         </form>
       </div>
     </div>
