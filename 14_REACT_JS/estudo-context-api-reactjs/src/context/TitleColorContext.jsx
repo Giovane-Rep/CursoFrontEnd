@@ -1,0 +1,26 @@
+/* eslint-disable react/prop-types */
+import { createContext, useReducer } from "react";
+
+export const TitleColorContext = createContext();
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const titleColorReducer = (state, action) => {
+  switch (action.type) {
+    case "RED":
+      return { ...state, color: "red" };
+    case "BLUE":
+      return { ...state, color: "blue" };
+    default:
+      return state;
+  }
+};
+
+export const TitleColorContextProvider = ({ children }) => {
+  const [state, dispach] = useReducer(titleColorReducer, { color: "purple" });
+
+  return (
+    <TitleColorContext.Provider value={{ ...state, dispach }}>
+      {children}
+    </TitleColorContext.Provider>
+  );
+};
